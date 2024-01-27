@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     // Clone the GitHub repository
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/${GITHUB_REPO}.git"]]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/${GITHUB_REPO}.git"]]])
                 }
             }
         }
