@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     // Install required Python packages including pytest
-                    sh "pip install -r pytest" 
+                    sh "pip install pytest" 
                 }
             }
         }
