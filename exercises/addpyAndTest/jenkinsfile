@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Customize these variables
         GITHUB_REPO = 'aharongo/DevOptsTest'
-        PYTHON_FILE = 'exercises/addpyAndTest/add.py'
+        PYTHON_FILE = 'exercises/addpyAndTest/test_add.py'
         PYTHON_COMMAND = 'pytest'
     }
 
