@@ -5,7 +5,7 @@ pipeline {
         // Customize these variables
         GITHUB_REPO = 'aharongo/DevOptsTest'
         PYTHON_FILE = 'exercises/addpyAndTest/add.py'
-        PYTHON_COMMAND = 'python'
+        PYTHON_COMMAND = 'python3'
     }
 
     stages {
