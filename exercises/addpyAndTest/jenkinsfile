@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    
+    environment {
+        // Customize these variables
+        GITHUB_REPO = 'aharongo/DevOptsTest'
+        PYTHON_FILE = 'exercises/addpyAndTest/add.py'
+        PYTHON_COMMAND = 'python'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Clone the GitHub repository
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: "https://github.com/${GITHUB_REPO}.git"]]])
+                }
+            }
+        }
+
+        stage('Run Python Test') {
+            steps {
+                script {
+                    // Run the Python file as a test
+                    sh "${PYTHON_COMMAND} ${PYTHON_FILE}"
+                }
+            }
+        }
+    }
+}
