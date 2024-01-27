@@ -4,8 +4,9 @@ pipeline {
     environment {
         // Customize these variables
         GITHUB_REPO = 'aharongo/DevOptsTest'
-        PYTHON_FILE = 'exercises/addpyAndTest/test_add.py'
-        PYTHON_COMMAND = 'pytest'
+        PYTHON_FILE = 'exercises/addpyAndTest/add.py'
+        TEST_FILE = 'exercises/addpyAndTest/test_add.py'
+        PYTHON_COMMAND = 'python3'
     }
 
     stages {
@@ -18,11 +19,20 @@ pipeline {
             }
         }
 
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // Install required Python packages including pytest
+                    sh "pip install -r pytest" 
+                }
+            }
+        }
+
         stage('Run Python Test') {
             steps {
                 script {
                     // Run the Python file as a test
-                    sh "${PYTHON_COMMAND} ${PYTHON_FILE}"
+                    sh "${PYTHON_COMMAND} -m pytest ${TEST_FILE}"
                 }
             }
         }
