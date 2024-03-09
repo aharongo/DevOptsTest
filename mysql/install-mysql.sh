@@ -16,3 +16,12 @@ echo $MYSQL_ROOT_PASSWORD
 kubectl run mysql-release-client --rm --tty -i --restart='Never' --image  docker.io/bitnami/mysql:8.0.36-debian-12-r8 --namespace default --env MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD --command -- bash
 
 mysql -h mysql-release.default.svc.cluster.local -uroot -p"$MYSQL_ROOT_PASSWORD"
+
+#after login to db
+#display databases list
+how databases;
+#select the relevant DB
+use devopsDB
+#show tables
+show tables;
+
